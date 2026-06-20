@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" fill="none">
+  <defs>
+    <linearGradient id="g2" x1="0" y1="0" x2="1280" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#16140f"/>
+      <stop offset="1" stop-color="#0c0b0a"/>
+    </linearGradient>
+    <radialGradient id="r2" cx="0.75" cy="0.3" r="0.85">
+      <stop stop-color="#9a8a74" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#9a8a74" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="800" fill="url(#g2)"/>
+  <rect width="1280" height="800" fill="url(#r2)"/>
+  <g fill="#ece7e1" fill-opacity="0.05">
+    <circle cx="980" cy="220" r="160"/>
+    <circle cx="300" cy="560" r="110"/>
+  </g>
+  <text x="640" y="395" text-anchor="middle" fill="#ece7e1" fill-opacity="0.85" font-family="Inter, system-ui, sans-serif" font-size="44" font-weight="600">Projeto · Imagem 02</text>
+  <text x="640" y="445" text-anchor="middle" fill="#a39b91" font-family="Inter, system-ui, sans-serif" font-size="22">Substitua por um print real em /public/projects</text>
+</svg>

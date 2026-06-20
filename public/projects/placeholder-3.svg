@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" fill="none">
+  <defs>
+    <linearGradient id="g3" x1="1280" y1="0" x2="0" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1c1a16"/>
+      <stop offset="1" stop-color="#0c0b0a"/>
+    </linearGradient>
+    <radialGradient id="r3" cx="0.5" cy="0.8" r="0.9">
+      <stop stop-color="#cbb89d" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#cbb89d" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="800" fill="url(#g3)"/>
+  <rect width="1280" height="800" fill="url(#r3)"/>
+  <g stroke="#cbb89d" stroke-opacity="0.18" stroke-width="2" fill="none">
+    <rect x="440" y="180" width="400" height="440" rx="28"/>
+    <path d="M500 280H780 M500 340H720 M500 400H760 M500 460H700"/>
+  </g>
+  <text x="640" y="690" text-anchor="middle" fill="#ece7e1" fill-opacity="0.85" font-family="Inter, system-ui, sans-serif" font-size="40" font-weight="600">Projeto · Imagem 03</text>
+</svg>
