@@ -17,11 +17,15 @@ Portfólio pessoal **front-end** construído com **Next.js (App Router)**, **Typ
 ## 🚀 Rodando localmente
 
 ```bash
+git clone https://github.com/joaovritter/portfolio.git
+cd portfolio
 npm install
 npm run dev
 ```
 
 Abra <http://localhost:3000>.
+
+> Requer **Node.js 18+**.
 
 Para gerar o build de produção:
 
@@ -34,21 +38,12 @@ npm start
 
 ## ☁️ Deploy na Vercel (via GitHub)
 
-1. Crie um repositório no GitHub e suba este projeto:
-   ```bash
-   git init
-   git add .
-   git commit -m "feat: portfólio"
-   git branch -M main
-   git remote add origin https://github.com/joaovritter/SEU-REPO.git
-   git push -u origin main
-   ```
-2. Acesse <https://vercel.com/new>, importe o repositório.
-3. A Vercel detecta o **Next.js** automaticamente — não precisa configurar nada.
+1. Acesse <https://vercel.com/new> e importe o repositório `joaovritter/portfolio`.
+2. A Vercel detecta o **Next.js** automaticamente — não precisa configurar nada.
    - Framework Preset: **Next.js**
    - Build Command: `next build` (padrão)
    - Output: padrão
-4. Clique em **Deploy**. Pronto. ✅
+3. Clique em **Deploy**. Pronto. ✅
 
 A cada `git push` na branch `main`, a Vercel faz o deploy automático.
 

@@ -22,16 +22,13 @@ export default function About() {
 
           <Reveal delay={3}>
             <div className="mt-2 flex flex-wrap gap-3">
-              {profile.stats.map((s) => (
-                <div
-                  key={s.label}
-                  className="rounded-2xl border border-line bg-surface px-5 py-4"
+              {profile.softSkills.map((skill) => (
+                <span
+                  key={skill}
+                  className="rounded-full border border-line bg-surface px-4 py-2 text-sm font-medium text-sand"
                 >
-                  <div className="font-display text-3xl font-bold text-gradient">
-                    {s.value}
-                  </div>
-                  <div className="mt-1 text-sm text-muted">{s.label}</div>
-                </div>
+                  {skill}
+                </span>
               ))}
             </div>
           </Reveal>
@@ -57,17 +54,12 @@ export default function About() {
                       "radial-gradient(120% 80% at 50% 0%, rgba(203,184,157,0.18), transparent 60%)",
                   }}
                 />
-                {/*
-                  DICA: troque este monograma por uma foto sua.
-                  Coloque /public/eu.jpg e use:
-                  <img src="/eu.jpg" alt="João Vitor" className="absolute inset-0 h-full w-full object-cover" />
-                */}
-                <div className="relative text-center">
-                  <div className="font-display text-7xl font-bold text-gradient">JV</div>
-                  <div className="mt-2 text-sm uppercase tracking-[0.3em] text-muted">
-                    Ritter
-                  </div>
-                </div>
+                {/* Coloque sua foto em /public/eu.jpeg (retrato 4:5 fica melhor) */}
+                <img
+                  src="/eu.jpeg"
+                  alt="João Vitor Ritter"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
               </div>
             </div>
 

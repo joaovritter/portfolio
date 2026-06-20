@@ -12,7 +12,7 @@ export default function Experience() {
         <SectionHeading
           eyebrow="Trajetória"
           title="Experiência profissional"
-          description="Da base em hardware ao desenvolvimento de soluções completas — cada etapa construiu a forma como penso e entrego software hoje."
+          description="Do hardware ao desenvolvimento de software, cada etapa somou na forma como trabalho hoje."
         />
 
         <div className="relative mt-16">

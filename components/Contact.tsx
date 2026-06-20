@@ -44,8 +44,8 @@ export default function Contact() {
             Contato
           </span>
           <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-sand sm:text-5xl md:text-6xl">
-            Vamos construir algo
-            <span className="block text-gradient">incrível juntos?</span>
+            Tem alguma ideia ou sugestão?
+            <span className="block text-gradient">Bora conversar.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted">
             Seja para o desenvolvimento de um aplicativo, a estruturação de um sistema
