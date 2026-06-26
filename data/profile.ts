@@ -15,7 +15,7 @@ export const profile = {
   heroTagline:
     "Desenvolvo sistemas completos, do banco de dados à interface do usuário. Meu foco é entender cada problema e criar soluções eficientes e fáceis de manter",
   // Sobre
-  aboutTitle: "Além de código: construindo ecossistemas completos.",
+  aboutTitle: "Além de código: construindo soluções completas.",
   aboutParagraphs: [
     "Sou estudante de Sistemas de Informação na UFN e gosto de aprender coisa nova o tempo todo. Antes de sair codando, prefiro entender bem o problema.",
     "Hoje trabalho na equipe de TI do Ministério Público do Trabalho (MPT). Cuido para a infraestrutura ficar de pé, dou suporte direto e desenvolvo sistemas e automações para resolver o que a instituição precisa no dia a dia.",
