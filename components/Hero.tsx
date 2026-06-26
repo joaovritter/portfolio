@@ -79,8 +79,6 @@ export default function Hero() {
           animate="visible"
           className="flex max-w-4xl flex-col items-start"
         >
-         
-
           <motion.p
             variants={item}
             className="mb-3 font-display text-lg text-muted sm:text-xl"
