@@ -41,7 +41,39 @@ export type Project = {
  */
 export const projects: Project[] = [
   {
-    id: "ritter-co-clinica",
+    id: "train-bala",
+    title: "TrainBala — App de Treino de Hipertrofia com IA",
+    tagline: "Registro de séries e feedback personalizado de treino via IA.",
+    description:
+      "Aplicativo full-stack para acompanhamento de treinos de hipertrofia: o usuário monta sua divisão semanal, registra cada série (peso, reps e RIR) e, ao finalizar, recebe um feedback gerado por IA (Google Gemini) com score, insights e metas de carga para a próxima sessão. Inclui análise de progresso com gráficos, calendário de histórico e uma aba de guias com aulas por exercício geradas por IA.",
+    highlights: [
+      "Feedback de treino por IA (Google Gemini): score, insights e metas automáticas de carga/reps para a próxima sessão",
+      "Análise de progresso filtrável (volume, carga máxima e 1RM estimado por Epley) com gráficos por grupamento e exercício",
+      "Aba Guia com aulas por exercício geradas por IA e cacheadas no banco, mais vídeo via busca no YouTube",
+      "Sessão de treino persistente: cronômetro e séries sobrevivem à navegação e ao reload (web)",
+      "Autenticação JWT + bcrypt, onboarding em wizard e exercícios personalizados por usuário",
+      "Deploy próprio em VM no Google Cloud com Docker Compose (PostgreSQL + Node/Express + Nginx HTTPS)",
+    ],
+    stack: ["Flutter", "Dart", "Node.js", "Express", "PostgreSQL", "Docker", "Nginx", "Google Gemini", "JWT"],
+    year: "2026",
+    demo: "https://34.39.173.247",
+    images: [
+      { src: "/projects/train-bala/tela1.png", caption: "Login na conta" },
+      { src: "/projects/train-bala/tela2.png", caption: "Início — resumo dos últimos 7 dias e treino do dia" },
+      { src: "/projects/train-bala/tela3.png", caption: "Sessão de treino — registro de séries (peso, reps e RIR) com meta da IA" },
+      { src: "/projects/train-bala/tela4.png", caption: "Resultado do treino — score, resumo e estatísticas" },
+      { src: "/projects/train-bala/tela5.png", caption: "Feedback da IA — insights e metas de carga para a próxima sessão" },
+      { src: "/projects/train-bala/tela6.png", caption: "Calendário de histórico — treinos do mês e frequência semanal" },
+      { src: "/projects/train-bala/tela7.png", caption: "Análise de progresso — evolução de carga e volume por exercício" },
+      { src: "/projects/train-bala/tela8.png", caption: "Guia — exercícios por grupamento muscular" },
+      { src: "/projects/train-bala/tela9.png", caption: "Aula do exercício gerada por IA com vídeo no YouTube" },
+      { src: "/projects/train-bala/tela10.png", caption: "Perfil — dados físicos e divisão de treino semanal" },
+    ],
+
+  },
+
+  {
+    id: "ritter",
     title: "Ritter&Co — Sistema de Gestão para Clínica Estética",
     tagline:
       "Plataforma fullstack de agendamento, financeiro e dashboards para uma clínica de estética.",
@@ -65,7 +97,6 @@ export const projects: Project[] = [
       "JWT",
     ],
     year: "2026",
-    github: "https://github.com/joaovritter/agendamentoClinica",
     demo: "",
     images: [
       { src: "/projects/gestao-clinica/tela1.png", caption: "Início — visão geral e próximo agendamento" },
@@ -75,44 +106,30 @@ export const projects: Project[] = [
       { src: "/projects/gestao-clinica/tela5.png", caption: "Caixa / extrato com exportação em PDF" },
     ],
   },
+
   {
-    id: "projeto-2",
-    title: "Automação de Rotinas Internas",
-    tagline: "Scripts e integrações que eliminam tarefas repetitivas.",
+
+    id: "alugueis-alzira",
+    title: "Alzira Ritter — Aluguéis de Verão",
+    tagline: "Site institucional de temporada para apartamentos em Capão da Canoa/RS.",
     description:
-      "Conjunto de automações e integrações de APIs criadas para otimizar rotinas internas e reduzir trabalho manual, conectando sistemas distintos e gerando relatórios automaticamente.",
+      "Landing page institucional (front-end estático, sem servidor ou banco de dados) para divulgar apartamentos de aluguel de temporada em Capão da Canoa/RS. Apresenta cada imóvel com galeria de fotos, comodidades, diferenciais e mapa embarcado, com toda a negociação direcionada ao WhatsApp. Conteúdo (textos, fotos e contatos) centralizado em um único arquivo de dados para facilitar a manutenção pela proprietária.",
     highlights: [
-      "Integração entre múltiplos sistemas via APIs REST e webhooks",
-      "Geração automática de relatórios",
-      "Redução significativa de trabalho manual repetitivo",
+      "Seção por apartamento com carrossel de fotos (Embla) com miniaturas, contador e lightbox fullscreen",
+      "Mapa do Google Maps embarcado (sem chave de API) e botão 'Aernativa",
+      "Animações de entrada por scroll com Framer Motion e botão flutuante de WhatsApp em todas as telas",
+      "Conteúdo 100% editável em um único arquivo (apartments.js):s e lista de fotos",
+      "Design system próprio com paleta azul-petróleo + dourado, tipografia e layout responsivo com menu mobile",
+      "Valores 'sob consulta' com CTAs que abrem conversa pré-preenchida",
     ],
-    stack: ["Node.js", "Python", "REST APIs", "Docker"],
-    year: "2025",
-    github: "https://github.com/joaovritter",
-    demo: "",
+    stack: ["React", "Vite", "JavaScript", "Framer Motion", "Vercel"],
+    year: "2026",
+    demo: "https://alziraalugueis.vercel.app/",
     images: [
-      { src: "/projects/placeholder-2.svg", caption: "Fluxo de automação" },
-      { src: "/projects/placeholder-1.svg", caption: "Relatório gerado" },
-    ],
-  },
-  {
-    id: "projeto-3",
-    title: "App Mobile — Conceito",
-    tagline: "Aplicativo multiplataforma com foco em UX.",
-    description:
-      "Aplicativo mobile multiplataforma construído com foco em experiência do usuário, navegação fluida e componentização. Integra autenticação e consumo de API em tempo real.",
-    highlights: [
-      "Interface fluida e componentizada",
-      "Autenticação e consumo de API em tempo real",
-      "Build único para Android e iOS",
-    ],
-    stack: ["React Native", "TypeScript", "Firebase"],
-    year: "2024",
-    github: "https://github.com/joaovritter",
-    demo: "",
-    images: [
-      { src: "/projects/placeholder-3.svg", caption: "Tela inicial" },
-      { src: "/projects/placeholder-1.svg", caption: "Login" },
+      { src: "/projects/alugueis-alzira/tela1.png", caption: "" },
+      { src: "/projects/alugueis-alzira/tela2.png", caption: "" },
+      { src: "/projects/alugueis-alzira/tela3.png", caption: "" },
+
     ],
   },
 ];
