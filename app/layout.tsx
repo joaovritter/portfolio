@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { profile } from "@/data/profile";
+import { LiquidGlassFilter } from "@/components/LiquidButton";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -53,7 +54,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <LiquidGlassFilter />
+        {children}
+      </body>
     </html>
   );
 }

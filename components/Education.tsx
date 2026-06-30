@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FiAward, FiBookOpen, FiCalendar, FiDownload } from "react-icons/fi";
 import SectionHeading from "./SectionHeading";
+import { LiquidButton } from "./LiquidButton";
 import { education, profile } from "@/data/profile";
 
 export default function Education() {
@@ -64,13 +65,13 @@ export default function Education() {
                   Baixe meu currículo em PDF com todo o histórico de experiências,
                   habilidades técnicas e formação.
                 </p>
-                <a
+                <LiquidButton
                   href={profile.resume}
                   download
-                  className="mt-5 inline-flex items-center gap-2 rounded-full bg-sand px-5 py-2.5 text-sm font-semibold text-base transition-transform hover:scale-[1.03]"
+                  className="mt-5 ring-1 ring-accent/30"
                 >
                   <FiDownload /> Baixar currículo
-                </a>
+                </LiquidButton>
               </div>
             </div>
           </div>

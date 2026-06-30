@@ -10,6 +10,8 @@ import {
 import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { FiArrowDown, FiArrowUpRight, FiDownload, FiMapPin } from "react-icons/fi";
 import ParticlesBackground from "./ParticlesBackground";
+import Magnetic from "./Magnetic";
+import { LiquidButton } from "./LiquidButton";
 import { profile } from "@/data/profile";
 
 const container: Variants = {
@@ -23,6 +25,20 @@ const item: Variants = {
     opacity: 1,
     y: 0,
     transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+// Revelação cinética do nome: cada palavra "sobe" por trás de uma máscara
+const headline: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.12 } },
+};
+
+const wordReveal: Variants = {
+  hidden: { y: "130%" },
+  visible: {
+    y: 0,
+    transition: { duration: 0.85, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -88,17 +104,24 @@ export default function Hero() {
             {profile.heroGreeting}
           </motion.p>
 
-          <h1 className="font-display text-5xl font-bold leading-[0.95] tracking-tight sm:text-7xl md:text-8xl">
+          <motion.h1
+            variants={headline}
+            className="font-display text-5xl font-bold leading-[0.95] tracking-tight sm:text-7xl md:text-8xl"
+          >
             {nameWords.map((word, i) => (
-              <motion.span
+              <span
                 key={i}
-                variants={item}
-                className="mr-[0.25em] inline-block text-gradient"
+                className="mr-[0.25em] inline-block overflow-hidden py-[0.18em] align-bottom [margin-block:-0.18em]"
               >
-                {word}
-              </motion.span>
+                <motion.span
+                  variants={wordReveal}
+                  className="inline-block text-gradient"
+                >
+                  {word}
+                </motion.span>
+              </span>
             ))}
-          </h1>
+          </motion.h1>
 
           <motion.p
             variants={item}
@@ -115,21 +138,21 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-3">
-            <button
-              onClick={() => scrollTo("projetos")}
-              className="group inline-flex items-center gap-2 rounded-full bg-sand px-6 py-3 text-sm font-semibold text-base transition-transform hover:scale-[1.03] active:scale-95"
-            >
-              Ver meus projetos
-              <FiArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </button>
-            <a
-              href={profile.resume}
-              download
-              className="group inline-flex items-center gap-2 rounded-full border border-line bg-surface2/60 px-6 py-3 text-sm font-semibold text-sand transition-all hover:border-accent/50 hover:bg-surface2"
-            >
-              <FiDownload className="transition-transform group-hover:translate-y-0.5" />
-              Baixar currículo
-            </a>
+            <Magnetic className="inline-flex">
+              <LiquidButton
+                onClick={() => scrollTo("projetos")}
+                className="ring-1 ring-accent/30"
+              >
+                Ver meus projetos
+                <FiArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </LiquidButton>
+            </Magnetic>
+            <Magnetic className="inline-flex">
+              <LiquidButton href={profile.resume} download>
+                <FiDownload className="transition-transform group-hover:translate-y-0.5" />
+                Baixar currículo
+              </LiquidButton>
+            </Magnetic>
           </motion.div>
 
           <motion.div

@@ -8,6 +8,7 @@ import {
   FiArrowUpRight,
 } from "react-icons/fi";
 import { FaGithub, FaLinkedinIn, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { LiquidButton } from "./LiquidButton";
 import { profile } from "@/data/profile";
 
 const whatsappLink = `https://wa.me/55${profile.phone.replace(/\D/g, "")}`;
@@ -53,21 +54,20 @@ export default function Contact() {
           </p>
 
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <a
+            <LiquidButton
               href={`mailto:${profile.email}`}
-              className="group inline-flex items-center gap-2 rounded-full bg-sand px-6 py-3 text-sm font-semibold text-base transition-transform hover:scale-[1.03]"
+              className="ring-1 ring-accent/30"
             >
               <FiMail /> {profile.email}
-            </a>
-            <a
+            </LiquidButton>
+            <LiquidButton
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 rounded-full border border-line bg-surface2/60 px-6 py-3 text-sm font-semibold text-sand transition-all hover:border-accent/50"
             >
               <FaWhatsapp className="text-accent" /> WhatsApp
               <FiArrowUpRight className="opacity-60 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
+            </LiquidButton>
           </div>
         </motion.div>
 

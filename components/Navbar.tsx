@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiDownload, FiMenu, FiX } from "react-icons/fi";
+import { LiquidButton } from "./LiquidButton";
 import { profile } from "@/data/profile";
 
 const links = [
@@ -101,14 +102,12 @@ export default function Navbar() {
           </ul>
 
           <div className="flex items-center gap-2">
-            <a
-              href={profile.resume}
-              download
-              className="hidden items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-2 text-sm font-medium text-accent transition-all hover:bg-accent/20 hover:border-accent/70 sm:inline-flex"
-            >
-              <FiDownload className="text-base" />
-              Currículo
-            </a>
+            <div className="hidden sm:block">
+              <LiquidButton href={profile.resume} download size="sm">
+                <FiDownload className="text-base" />
+                Currículo
+              </LiquidButton>
+            </div>
 
             <button
               onClick={() => setOpen((v) => !v)}
@@ -155,14 +154,14 @@ export default function Navbar() {
                     </button>
                   </li>
                 ))}
-                <li className="mt-1 px-1">
-                  <a
+                <li className="mt-2 px-1">
+                  <LiquidButton
                     href={profile.resume}
                     download
-                    className="flex items-center justify-center gap-2 rounded-2xl border border-accent/40 bg-accent/10 px-4 py-3 font-medium text-accent"
+                    className="w-full justify-center"
                   >
                     <FiDownload /> Baixar Currículo
-                  </a>
+                  </LiquidButton>
                 </li>
               </ul>
             </motion.div>

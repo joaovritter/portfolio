@@ -1,7 +1,12 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+} from "framer-motion";
 import {
   FiX,
   FiChevronLeft,
@@ -11,6 +16,7 @@ import {
   FiMaximize2,
   FiImage,
 } from "react-icons/fi";
+import { LiquidButton } from "./LiquidButton";
 import type { Project } from "@/data/projects";
 
 export default function ProjectModal({
@@ -22,6 +28,18 @@ export default function ProjectModal({
 }) {
   const [index, setIndex] = useState(0);
   const [lightbox, setLightbox] = useState(false);
+  // Detecta telas verticais (apps mobile) p/ não cortar a imagem
+  const [portrait, setPortrait] = useState(false);
+
+  // Brilho que segue o cursor na imagem principal
+  const gx = useMotionValue(50);
+  const gy = useMotionValue(50);
+  const glow = useMotionTemplate`radial-gradient(380px circle at ${gx}% ${gy}%, rgba(203,184,157,0.18), transparent 55%)`;
+  const onImgMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    gx.set(((e.clientX - r.left) / r.width) * 100);
+    gy.set(((e.clientY - r.top) / r.height) * 100);
+  };
 
   const images = project?.images ?? [];
   const total = images.length;
@@ -102,12 +120,25 @@ export default function ProjectModal({
                 <div
                   className="group relative aspect-[16/10] cursor-zoom-in overflow-hidden rounded-2xl border border-line bg-base"
                   onClick={() => setLightbox(true)}
+                  onMouseMove={onImgMove}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={images[index].src}
                     alt={images[index].caption || `${project.title} — imagem ${index + 1}`}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    onLoad={(e) =>
+                      setPortrait(
+                        e.currentTarget.naturalHeight > e.currentTarget.naturalWidth
+                      )
+                    }
+                    className={`h-full w-full transition-transform duration-500 group-hover:scale-[1.03] ${
+                      portrait ? "object-contain" : "object-cover"
+                    }`}
+                  />
+                  <motion.div
+                    aria-hidden
+                    style={{ background: glow }}
+                    className="pointer-events-none absolute inset-0 z-[5] rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                   />
                   <span className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-base/60 text-sand opacity-0 backdrop-blur transition-opacity group-hover:opacity-100">
                     <FiMaximize2 size={16} />
@@ -206,24 +237,23 @@ export default function ProjectModal({
 
                 <div className="mt-auto flex flex-wrap gap-3 pt-2">
                   {project.demo && (
-                    <a
+                    <LiquidButton
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full bg-sand px-5 py-2.5 text-sm font-semibold text-base transition-transform hover:scale-[1.03]"
+                      className="ring-1 ring-accent/30"
                     >
                       <FiExternalLink /> Acessar projeto
-                    </a>
+                    </LiquidButton>
                   )}
                   {project.github && (
-                    <a
+                    <LiquidButton
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-line bg-surface2 px-5 py-2.5 text-sm font-semibold text-sand transition-colors hover:border-accent/50"
                     >
                       <FiGithub /> Ver código
-                    </a>
+                    </LiquidButton>
                   )}
                 </div>
               </div>
